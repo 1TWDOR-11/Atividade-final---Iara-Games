@@ -1,40 +1,42 @@
-# 🎮 Iara Games - MVP
+Iara Games – Plataforma de Jogos Digitais
+Este repositório contém o desenvolvimento da plataforma Iara Games, voltada para a descoberta, organização e aquisição de jogos digitais, com ênfase na valorização de desenvolvedores independentes. O projeto foi desenvolvido como parte da entrega final acadêmica, contendo uma área funcional completa e demais áreas prototipadas.
 
-O **Iara Games** é um projeto de plataforma web para cadastro e listagem de jogos, permitindo também o gerenciamento de usuários. Esta aplicação foi desenvolvida como MVP (Produto Mínimo Viável), integrando tecnologias de frontend e backend, com deploy completo e documentação.
+Área Funcional Desenvolvida
+A área funcional desenvolvida neste repositório refere-se à [especificar funcionalidade implementada, como por exemplo: "cadastro e autenticação de usuários", "biblioteca de jogos personalizada", "visualização de jogos com filtro e detalhes", etc.]. Essa funcionalidade está totalmente operacional e conectada ao backend via Firebase.
 
-## 🧩 Funcionalidades
+Integração com Firebase
+O projeto utiliza os serviços do Firebase para garantir uma infraestrutura leve, segura e escalável. As funcionalidades aplicadas incluem:
 
-- Cadastro de usuários
-- Cadastro de jogos
-- Listagem de jogos e usuários
-- Edição e exclusão de registros
-- Integração com backend via API REST
-- Layout responsivo com Bootstrap
-- Deploy completo (frontend e backend)
-- Documentação em PDF
+Firebase Authentication: controle de login e cadastro de usuários com e-mail e senha.
 
-## 🛠️ Tecnologias Utilizadas
+Cloud Firestore: armazenamento de dados estruturados como perfis de usuários, dados de jogos e biblioteca.
 
-### Frontend
-- HTML
-- CSS
-- JavaScript
-- Bootstrap
+Firebase Storage: upload e exibição de imagens dos jogos e usuários (quando aplicável).
 
-### Backend
-- Java
-- Spring Boot
-- API REST
+Firebase Hosting (opcional): possibilidade de deploy direto da aplicação para ambiente web.
 
-### Ferramentas
-- VS Code
-- Postman
-- Git e GitHub
-- JSON Server (para testes iniciais de API)
-- Plataforma de cloud para deploy do backend (ex: Render, Railway)
-- GitHub Pages / Vercel (para deploy do frontend)
-## 📂 Como rodar localmente
+Essa estrutura permite atualizações em tempo real e controle centralizado das informações, facilitando o desenvolvimento e a manutenção da plataforma.
 
-### Backend
-# Rode a aplicação (necessário Java 17+ e Maven)
-./mvnw spring-boot:run
+Protótipo das Demais Áreas
+As demais seções da plataforma foram desenvolvidas como protótipo navegável no Figma, demonstrando o design completo e os fluxos de navegação propostos para o sistema.
+
+Link para o protótipo no Figma: https://www.figma.com/design/YE9WDlT2gkGaSxPQKQgmqV/Iara-Games---UI?node-id=0-12&t=6QFsRwbK8vYYXkQo-1)](https://www.figma.com/design/YE9WDlT2gkGaSxPQKQgmqV/Iara-Games---UI?node-id=0-12&t=6QFsRwbK8vYYXkQo-1
+
+Tecnologias Utilizadas
+HTML5
+
+CSS3
+
+JavaScript
+
+Bootstrap
+
+Firebase (Auth, Firestore, Storage, Hosting)
+
+Figma (Prototipagem)
+
+Equipe de Desenvolvimento
+Integrantes:
+Gabriel de Oliveira Pereira - oli.g@outlook.com
+Hannya Silva Cavalcante - Hannyacavalcante@hotmail.com
+Mariana Ayumi Sodré Nikaido mariananikaido04@gmail.com
