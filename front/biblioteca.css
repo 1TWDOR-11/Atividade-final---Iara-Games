@@ -1,0 +1,326 @@
+/* CSS da Biblioteca de Jogos (biblioteca.css) */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    font-family: 'Lexend', sans-serif;
+    background-color: #121212;
+    color: #fff;
+    display: flex;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #181818;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.user-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.menu ul {
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.menu ul li {
+    margin-bottom: 15px;
+}
+
+.menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.menu ul li a:hover {
+    color: #7B42F5;
+}
+
+.bottom-menu {
+    margin-top: auto;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+.library-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.cart {
+    position: relative;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: #D942F5;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.game-card {
+    position: relative;
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.game-card:hover {
+    transform: scale(1.05);
+}
+
+.game-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.game-card h3, .game-card p {
+    margin: 5px 0;
+}
+
+.game-card button {
+    background-color: #7B42F5;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.favorite-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: #ffffff;
+    transition: color 0.3s;
+}
+
+.favorite-icon:hover {
+    color: #ff4757;
+}
+
+.cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100%;
+    background-color: #181818;
+    color: #fff;
+    padding: 20px;
+    transition: right 0.3s ease;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-sidebar.open {
+    right: 0;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.close-cart {
+    cursor: pointer;
+    font-size: 28px;
+}
+
+#cartItems {
+    list-style: none;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+#cartItems li {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #333;
+}
+
+.checkout-btn {
+    background-color: #7B42F5;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.popup-content {
+    background-color: #1f1f1f;
+    border-radius: 15px;
+    padding: 20px;
+    position: relative;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+}
+
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+
+/* Remove a decoração de links */
+.user-profile a {
+    text-decoration: none;
+    color: #fff;
+}
+
+
+.user-profile img {
+    width: 50px; 
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.add-game {
+    background-color: #1f1f1f;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.add-game h3 {
+    margin-bottom: 15px;
+}
+
+#addGameForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#addGameForm input,
+#addGameForm button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Lexend', sans-serif;
+}
+
+#addGameForm input {
+    background-color: #2a2a2a;
+    color: #fff;
+}
+
+#addGameForm button {
+    background-color: #7B42F5;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#addGameForm button:hover {
+    background-color: #682de0;
+}
+.card-actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.card-actions button {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: transform 0.2s, color 0.2s;
+}
+
+.card-actions button:hover {
+    transform: scale(1.2);
+    color: #7B42F5;
+}
+
+.cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: -320px;
+    width: 300px;
+    height: 100%;
+    background-color: #181818;
+    color: #fff;
+    padding: 20px;
+    transition: right 0.4s ease-in-out; /* Efeito suave */
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-sidebar.open {
+    right: 0; /* Aparece suavemente */
+}
+
+
+

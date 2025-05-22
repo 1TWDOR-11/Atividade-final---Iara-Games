@@ -1,0 +1,295 @@
+/* CSS - Página Inicial (Home) */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    font-family: 'Lexend', sans-serif;
+    background-color: #121212;
+    color: #fff;
+    display: flex;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #181818;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.user-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.menu ul {
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.menu ul li {
+    margin-bottom: 15px;
+}
+
+.menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.menu ul li a:hover {
+    color: #7B42F5;
+}
+
+.bottom-menu {
+    margin-top: auto;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.search-bar input {
+    flex-grow: 1;
+    padding: 10px;
+    border-radius: 25px;
+    border: none;
+    margin-right: 10px;
+}
+
+.search-bar button {
+    padding: 10px;
+    border: none;
+    border-radius: 50%;
+    background-color: #7B42F5;
+    color: #fff;
+    cursor: pointer;
+}
+
+.games-section,
+.streamers-section {
+    margin-bottom: 40px;
+}
+
+.games-section h2,
+.streamers-section h2 {
+    margin-bottom: 20px;
+}
+
+.game-card,
+.streamer-card {
+    display: flex;
+    align-items: center;
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.game-card img,
+.streamer-card img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+
+.game-info,
+.streamer-card span {
+    padding: 10px;
+}
+
+.game-info h3 {
+    font-size: 18px;
+}
+
+.game-info p {
+    font-size: 14px;
+    color: #aaa;
+}
+
+/* Remove a decoração de links */
+.user-profile a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Aumenta o ícone do perfil para alinhar melhor com o texto */
+.user-profile img {
+    width: 50px;
+    /* aumentado de 40px para 50px */
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* ---------------------- */
+/* ESTILOS ADICIONAIS PARA COERÊNCIA COM OUTRAS PÁGINAS */
+/* ---------------------- */
+
+.game-card:hover,
+.streamer-card:hover {
+    background-color: #2a2a2a;
+    transform: scale(1.02);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.games-section h2,
+.streamers-section h2 {
+    font-size: 22px;
+    font-weight: 600;
+    border-left: 4px solid #7B42F5;
+    padding-left: 10px;
+}
+
+.game-card {
+    height: 100px;
+    padding-right: 15px;
+}
+
+.game-info h3 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.game-info p {
+    font-size: 13px;
+    color: #bbb;
+    margin-top: 5px;
+}
+
+.streamer-card {
+    padding: 10px;
+    gap: 15px;
+}
+
+.streamer-card img {
+    border-radius: 50%;
+}
+
+.search-bar button i {
+    font-size: 20px;
+}
+
+.content {
+    scroll-behavior: smooth;
+}
+
+.search-bar input:focus {
+    outline: 2px solid #7B42F5;
+}
+
+.menu ul li a.active {
+    color: #7B42F5;
+    font-weight: bold;
+}
+
+
+.chat-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #6a5acd;
+    color: white;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.chat-box {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 300px;
+    max-height: 400px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    display: none;
+    flex-direction: column;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    overflow: hidden;
+    font-family: 'Lexend', sans-serif;
+}
+
+.chat-header {
+    background: #6a5acd;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-messages {
+    padding: 10px;
+    flex: 1;
+    overflow-y: auto;
+    max-height: 250px;
+}
+
+.chat-input {
+    display: flex;
+    border-top: 1px solid #ccc;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    outline: none;
+}
+
+.chat-input button {
+    padding: 10px;
+    background: #6a5acd;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.chat-messages div {
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.chat-header select {
+    padding: 4px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+}

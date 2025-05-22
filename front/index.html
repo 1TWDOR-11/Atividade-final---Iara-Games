@@ -1,0 +1,167 @@
+<!-- Página Inicial - home.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iara Games - Página Inicial</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <aside class="sidebar">
+        <div class="user-profile">
+            <a href="perfil.html">
+                <img src="/Atividade final - Iara Games/assets/User Icon.png" alt="Usuário">
+                <div class="user-info">
+                    <span>Gxbels #0411</span>
+                    <small>São Paulo, Brasil</small>
+                </div>
+            </a>
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="#">Descobrir</a></li>
+                <li><a href="#">Favoritos</a></li>
+            </ul>
+            <ul class="bottom-menu">
+                <li><a href="#">Configurações</a></li>
+                <li><a href="home-page.html">Sair</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="content">
+        <header class="search-bar">
+            <input type="text" placeholder="Buscar jogos">
+            <button><i class="bi bi-filter"></i></button>
+        </header>
+
+        <section class="games-section">
+            <h2>Jogos em Destaque</h2>
+            <div class="game-card">
+                <img src="/Atividade final - Iara Games/assets/Knights of Pen & Paper.png" alt="Jogo 1">
+                <div class="game-info">
+                    <h3>Toren</h3>
+                    <p>Aventura</p>
+                </div>
+            </div>
+            <!-- Mais cards aqui -->
+        </section>
+
+        <section class="streamers-section">
+            <h2>Top Streamers</h2>
+            <div class="streamer-card">
+                <img src="/Atividade final - Iara Games/assets/rafael icon.png" alt="Streamer 1">
+                <span>Rafael Xavier</span>
+            </div>
+            <!-- Mais cards aqui -->
+        </section>
+
+        <!-- Botão flutuante -->
+        <div class="chat-button" onclick="toggleChat()">💬</div>
+
+        <!-- Caixa de chat -->
+        <div class="chat-box" id="chatBox">
+            <div class="chat-header">
+                <select id="chatTopic" onchange="carregarMensagens()">
+                    <option value="geral">#Geral</option>
+                    <option value="ajuda">#Ajuda</option>
+                    <option value="indicacoes">#Indicações</option>
+                </select>
+                <button onclick="toggleChat()">×</button>
+            </div>
+
+            <div class="chat-messages" id="chatMessages"></div>
+
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Digite sua mensagem..." />
+                <button onclick="sendMessage()">Enviar</button>
+            </div>
+        </div>
+
+    </main>
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+<script>
+    const firebaseConfig = {
+        apiKey: "AIzaSyBrSD1TYAPIpgykuHbvyFq_N2-zx0rJ_t0",
+        authDomain: "iara-games-cbdc1.firebaseapp.com",
+        projectId: "iara-games-cbdc1",
+        storageBucket: "iara-games-cbdc1.firebasestorage.app",
+        messagingSenderId: "340689027445",
+        appId: "1:340689027445:web:41670b9745cdefb8a4d33c",
+        databaseURL: "https://iara-games-cbdc1-default-rtdb.firebaseio.com"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+</script>
+
+<!-- Agora sim: depois do Firebase estar carregado -->
+<script>
+    const db = firebase.database();
+    let usuario = prompt("Digite seu nome de usuário:") || "Anônimo";
+
+    function toggleChat() {
+        const chat = document.getElementById("chatBox");
+        chat.style.display = chat.style.display === "flex" ? "none" : "flex";
+    }
+
+    function sendMessage() {
+        const input = document.getElementById("chatInput");
+        const mensagem = input.value.trim();
+        const topico = document.getElementById("chatTopic").value;
+
+        if (mensagem) {
+            const hora = new Date().toLocaleTimeString([], {
+                hour: "2-digit",
+                minute: "2-digit",
+            });
+            db.ref("chats/" + topico).push({
+                usuario: usuario,
+                mensagem: mensagem,
+                horario: hora,
+            });
+            input.value = "";
+        }
+    }
+
+    function carregarMensagens() {
+        const mensagensDiv = document.getElementById("chatMessages");
+        mensagensDiv.innerHTML = "";
+        const topico = document.getElementById("chatTopic").value;
+
+        db.ref("chats/" + topico).off();
+
+        db.ref("chats/" + topico).on("child_added", (snapshot) => {
+            const msg = snapshot.val();
+            const div = document.createElement("div");
+            div.innerHTML = `<strong>${msg.usuario}</strong> <small>(${msg.horario})</small>: ${formatarMensagem(msg.mensagem)}`;
+            mensagensDiv.appendChild(div);
+            mensagensDiv.scrollTop = mensagensDiv.scrollHeight;
+        });
+    }
+
+    function formatarMensagem(texto) {
+        return texto
+            .replace(/:joy:/g, "😂")
+            .replace(/:fire:/g, "🔥")
+            .replace(/:heart:/g, "❤️");
+    }
+
+    window.onload = carregarMensagens;
+</script>
+
+<!-- Seu script externo (se necessário) -->
+<script src="index.js"></script>
+
+</body>
+
+</html>

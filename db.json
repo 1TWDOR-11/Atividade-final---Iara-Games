@@ -1,0 +1,22 @@
+{
+  "jogos": [
+    {
+      "id": "1",
+      "nome": "Celeste",
+      "genero": "Plataforma",
+      "imagem": "/assets/Celeste.png"
+    },
+    {
+      "id": "2",
+      "nome": "Toren",
+      "genero": "Aventura",
+      "imagem": "/assets/Toren.png"
+    },
+    {
+      "id": "4fcf",
+      "nome": "Capoeira Legends",
+      "genero": "Ação",
+      "imagem": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR56lE6JMexgg6rjz3cGUDRmHd1Jp5fLBAQ6VYDuVI44AFe8aCcxMYe7kCJZkAjzONeuQTnIRbr51TGnnwWUvHrM2h4p0qg8m9orkeHqw"
+    }
+  ]
+}
